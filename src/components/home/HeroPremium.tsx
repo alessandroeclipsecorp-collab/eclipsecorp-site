@@ -173,7 +173,7 @@ export default function HeroPremium() {
             letterSpacing: "0.03em",
             color: "#0A0A0A",
             whiteSpace: "nowrap",
-            marginTop: 4,
+            marginTop: -16,
           }}
           aria-label={TITLE}
         >
