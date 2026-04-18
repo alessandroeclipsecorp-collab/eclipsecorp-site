@@ -135,8 +135,9 @@ export default function HeroPremium() {
             letterSpacing: "0.03em",
             color: "#0A0A0A",
             whiteSpace: "nowrap",
-            marginTop: 8,
-            marginBottom: 20,
+            
+           marginTop: -40,
+marginBottom: 20,
           }}
           aria-label={TITLE}
         >
