@@ -1,0 +1,101 @@
+@import "tailwindcss";
+
+:root {
+  --black:       #050508;
+  --black-deep:  #030305;
+  --black-card:  #08080E;
+  --black-mid:   #0D0F2B;
+  --gold:        #C9A84C;
+  --gold-light:  #F0D080;
+  --gold-dark:   #8B6914;
+  --blue:        #0D0F2B;
+  --blue-mid:    #1A1E4A;
+  --blue-accent: #7B9CFF;
+  --blue-glow:   rgba(13,15,43,0.8);
+}
+
+* { box-sizing: border-box; padding: 0; margin: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--black);
+  color: #ffffff;
+  overflow-x: hidden;
+  font-family: var(--font-inter, sans-serif);
+  cursor: none;
+}
+
+a, button, [role="button"], label, select, input, textarea { cursor: none; }
+
+::selection { background: var(--gold); color: #000; }
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--black-deep); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+
+/* ─── Utility ─── */
+.shimmer-text {
+  background: linear-gradient(90deg, var(--gold-dark) 0%, var(--gold-light) 50%, var(--gold-dark) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.blue-text {
+  background: linear-gradient(135deg, #4A60CC, var(--blue-accent), #B0BEFF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Keyframes ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-18px); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes rotate-slow-ccw {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(-360deg); }
+}
+
+@keyframes particle-rise {
+  0%   { transform: translateY(0) scale(1); opacity: 0.9; }
+  100% { transform: translateY(-350px) scale(0); opacity: 0; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; }
+  50%       { opacity: 1; }
+}
+
+@keyframes scan-line {
+  0%   { transform: translateY(-100vh); }
+  100% { transform: translateY(100vh); }
+}
+
+/* ─── Helpers ─── */
+.float-anim       { animation: float 6s ease-in-out infinite; }
+.rotate-slow      { animation: rotate-slow 20s linear infinite; }
+.rotate-slow-ccw  { animation: rotate-slow-ccw 28s linear infinite; }
+.pulse-glow       { animation: pulse-glow 3s ease-in-out infinite; }
